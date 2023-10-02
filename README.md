@@ -32,12 +32,21 @@ The addresses are restricted to Brasil only.
 git clone https://github.com/ygor-sena/urbe-me-django-challenge.git
 ```
 
+After that, use `cd <dir_name>` to access the repository.
+
 #### 2) Create a virtual enviroment to run the project
 
 **Make sure that your local machine has `virtualenv` command installed.** Otherwise, refer to this link before proceeding: [Installing packages using pip and virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
 
 ```html
-cd urbe_me_django_challenge & ./run_script.sh
+cd urbe_me_django_challenge && ./run_script.sh
+```
+
+⚠️ If you have some issues with decouple module being unable to be imported, try (check [this link](https://www.datasciencelearner.com/importerror-cannot-import-name-config-from-decouple-solved/) for further explanation):
+
+```html
+pip uninstall decouple
+pip install python-decouple
 ```
 
 #### 3) Run project
