@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extend_head %}
+<script type="text/javascript">
+  var lat_a = {{lat_a|safe}};
+  var long_a = {{long_a|safe}};
+  var lat_b = {{lat_b|safe}};
+  var long_b = {{long_b|safe}};
+  var origin = "{{origin|safe}}";
+  var destination = "{{destination|safe}}";
+  var directions = {{directions|safe}}
+</script>
+
+<script src="{% static 'js/google_maps.js' %}"></script>
+{% endblock %} 
+
+{% block extend_nav %} 
+<ul class="sidenav">
+  <li><a href="{% url 'main:route' %}">Get a new route</a></li>
+  <li><a class="active" href="#map">See route instructions</a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+<h3 id="map">Origin-destination map with Google APIs</h3>
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Start</td>
+        <td>{{directions.origin}}</td>
+      </tr>
+      <tr>
+        <td>Destination</td>
+        <td>{{directions.destination}}</td>
+      </tr>
+      <tr>
+        <td>Duration</td>
+        <td>{{directions.duration}}</td>
+      </tr>
+      <tr>
+        <td>Distance</td>
+        <td>{{directions.distance}}</td>
+      </tr>
+      <tr>
+        <td>Directions</td>
+        <td id="dir-toggle">click <a href="javascript:void(0)" onclick="DirectionStepsToggle()">here</a></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <table id="dir-table" hidden>
+    <thead>
+      <tr>
+        <th>Directions</th>
+        <th>Distance</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for leg in directions.route %}
+        <tr>
+          <td></td>
+          <td></td>  
+        </tr>
+      {% for instructions, distance, duration in leg.steps %}
+        <tr>
+          <td>{{instructions|safe}}</td>
+          <td>{{distance}}</td>
+          <td>{{duration}}</td>
+        </tr>
+      {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="map-container">
+  <div id="map-route"></div>
+</div>
+{% endblock %}

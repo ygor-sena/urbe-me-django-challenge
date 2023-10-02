@@ -1,0 +1,6 @@
+asgiref==3.3.4
+Django==3.2.2
+sqlparse==0.4.1
+django-decouple==2.1
+humanfriendly==9.1
+requests==2.25.1

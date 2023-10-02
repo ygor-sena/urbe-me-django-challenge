@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extend_head %}
+<script src="{% static 'js/google_places.js' %}"></script>
+{% endblock %}
+
+{% block extend_nav %} 
+<ul class="sidenav">
+  <li><a class="active" href="{% url 'main:route' %}">Get a new route</a></li>
+  <li><a href="javascript:void(0)" onclick="alert('Please, add a valid origin and destination')">See route instructions</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<h3>Origin-destination map with Google APIs</h3>
+
+<p>Hello, are you going somewhere? Brazil is big, let's explore the country!</p>
+<p>Type an origin place and a destination place to get route instructions and see it on a map.</p>
+
+<div class="container">
+  <label for="id-google-address-a">Origin Address</label>
+  <input type="text" placeholder="*Begin typing origin address here" id="id-google-address-a" name="google_address_a">
+
+  <label for="id-google-address-b">Destination Address</label>
+  <input type="text" placeholder="*Begin typing destination address here" id="id-google-address-b" name="google_address_b">
+
+  <input type="hidden" class="geo" id="id-lat-a" value="">
+  <input type="hidden" class="geo" id="id-long-a" value="">
+  <input type="hidden" class="geo" id="id-lat-b" value="">
+  <input type="hidden" class="geo" id="id-long-b" value="">
+</div>
+{% endblock %}

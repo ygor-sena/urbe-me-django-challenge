@@ -1,0 +1,164 @@
+@font-face {
+  font-family: "Aeonik";
+  src: url("/static/fonts/AeonikTRIAL-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/static/fonts/AeonikTRIAL-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/static/fonts/AeonikTRIAL-RegularItalic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/static/fonts/AeonikTRIAL-Light.otf") format("opentype");
+  font-weight: light;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/static/fonts/AeonikTRIAL-LightItalic.otf") format("opentype");
+  font-weight: light;
+  font-style: italic;
+}
+
+body {
+  font-family: "Aeonik", fantasy;
+  margin: 0; 
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+* { box-sizing: border-box; }
+
+body, html, .map-container {
+	height: 100%;
+}
+
+#map-route {
+	height: 75%;
+}
+ul.sidenav {
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+ul.sidenav li a {
+  display: block;
+  color: #001a42;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+ul.sidenav li a.active {
+  background-color: #001a42;
+  color: white;
+}
+
+ul.sidenav li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.div-container {
+
+  margin-left: 25%;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 900px) {
+  ul.sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  ul.sidenav li a {
+    float: left;
+    padding: 15px;
+  }
+  
+  .div-container {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  ul.sidenav li a {
+    text-align: center;
+    float: none;
+  }
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: #9c07b6;
+  font-family: "Aeonik", fantasy;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #9c07b6;
+  font-family: "Aeonik", fantasy;
+}
+
+::placeholder {
+  color: #9c07b6;
+  font-family: "Aeonik", fantasy;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+table {
+  font-family: "Aeonik", fantasy;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #001a42;
+  color: white;
+}
