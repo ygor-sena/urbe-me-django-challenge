@@ -18,10 +18,8 @@ let map;
  * https://developers.google.com/maps/documentation/javascript/libraries
  */
 async function configureMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
+  let directionsService = new google.maps.DirectionsService;
+  let directionsDisplay = new google.maps.DirectionsRenderer;
   map = new google.maps.Map(document.getElementById('map-route'), {
       zoom: 7,
       center: {lat: lat_a, lng: long_a}

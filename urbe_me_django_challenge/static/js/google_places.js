@@ -5,10 +5,10 @@
 $.getScript(`https://maps.googleapis.com/maps/api/js?` + 
       `key=${google_api_key}&libraries=places&callback=initAutocomplete`)
 
-ORIGIN = 'a'
-DESTINATION = 'b'
+let ORIGIN = 'a'
+let DESTINATION = 'b'
 
-var auto_fields = [ORIGIN, DESTINATION]
+let auto_fields = [ORIGIN, DESTINATION]
 
 /**
  * @brief This function autocompletes the user input for the address fields.
@@ -17,8 +17,8 @@ var auto_fields = [ORIGIN, DESTINATION]
  * If either address is changed, the function onPlaceChanged() is called.
  */
 function initAutocomplete() {
-  for (i = 0; i < auto_fields.length; i++) {
-    var field = auto_fields[i]
+  for (let i = 0; i < auto_fields.length; i++) {
+    let field = auto_fields[i]
     window['autocomplete_' + field] = new google.maps.places.Autocomplete(
       document.getElementById('id-google-address-' + field),
     {
@@ -44,20 +44,19 @@ function initAutocomplete() {
  * be calculated if both addresses are provided.
  */
 function onPlaceChanged (field_name){
-  var auto = window['autocomplete_'+ field_name]
-  var element_id = 'id-google-address-'+ field_name
-  var lat_id = 'id-lat-' + field_name
-  var long_id = 'id-long-' + field_name
+  let element_id = 'id-google-address-'+ field_name
+  let lat_id = 'id-lat-' + field_name
+  let long_id = 'id-long-' + field_name
 
-  var geocoder = new google.maps.Geocoder()
-  var address = document.getElementById(element_id).value
+  let geocoder = new google.maps.Geocoder()
+  let address = document.getElementById(element_id).value
 
   geocoder.geocode({'address': address}, handleGeocodingAPIResponse); 
 
   function handleGeocodingAPIResponse(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
-        var latitude = results[0].geometry.location.lat();
-        var longitude = results[0].geometry.location.lng();
+        let latitude = results[0].geometry.location.lat();
+        let longitude = results[0].geometry.location.lng();
 
         $('#' + lat_id).val(latitude) 
         $('#' + long_id).val(longitude) 
@@ -74,7 +73,7 @@ function onPlaceChanged (field_name){
  * which are stored in hidden fields under the class name "geo".
  */
 function validateUserInput() {
-  var valid = true;
+  let valid = true;
   $('.geo').each(function () {
     if ($(this).val() === '') {
       valid = false;
@@ -90,20 +89,20 @@ function validateUserInput() {
  * the user to the map page.
  */
 function calculateRoute(){
-  if (validateUserInput() == true) {
-    var params = {
+  if (validateUserInput()) {
+    let params = {
         lat_a: $('#id-lat-a').val(),
         long_a: $('#id-long-a').val(),
         lat_b: $('#id-lat-b').val(),
         long_b: $('#id-long-b').val(),
     };
 
-    var esc = encodeURIComponent;
-    var query = Object.keys(params)
+    let esc = encodeURIComponent;
+    let query = Object.keys(params)
         .map(k => esc(k) + '=' + esc(params[k]))
         .join('&');
 
-    url = '/map?' + query
+    let url = '/map?' + query
     window.location.assign(url)
   }
 }

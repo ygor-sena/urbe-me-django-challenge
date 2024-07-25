@@ -7,7 +7,7 @@ Once the latitude and longitude are valid, this function calls the Google
 API to get the route and the map. It returns a dictionary with the origin,
 destination, distance, duration, and route instructions.
 '''
-def getRoadMap(*args, **kwargs):
+def getRoadMap(**kwargs):
 
   lat_a = kwargs.get("lat_a")
   long_a = kwargs.get("long_a")

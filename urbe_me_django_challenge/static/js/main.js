@@ -2,9 +2,9 @@
  * @brief This function shows or hides the direction steps table in map.html
  */
 function DirectionStepsToggle(){
-  var element = $('#dir-toggle');
-  var dir_table = $('#dir-table')
-  var isHidden = dir_table.is(':hidden');
+  let element = $('#dir-toggle');
+  let dir_table = $('#dir-table')
+  let isHidden = dir_table.is(':hidden');
 
   if (isHidden) {
     dir_table.fadeIn()
