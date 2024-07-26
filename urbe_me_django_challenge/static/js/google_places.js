@@ -17,8 +17,7 @@ let auto_fields = [ORIGIN, DESTINATION]
  * If either address is changed, the function onPlaceChanged() is called.
  */
 function initAutocomplete() {
-  for (let i = 0; i < auto_fields.length; i++) {
-    let field = auto_fields[i]
+  for (const field of auto_fields) {
     window['autocomplete_' + field] = new google.maps.places.Autocomplete(
       document.getElementById('id-google-address-' + field),
     {
