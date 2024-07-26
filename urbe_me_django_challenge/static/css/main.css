@@ -49,6 +49,10 @@ body, html, .map-container {
 	height: 100%;
 }
 
+caption {
+	display: none;
+}
+
 #map-route {
 	height: 75%;
 }

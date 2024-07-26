@@ -3,7 +3,7 @@
  * initAutocomplete() to give the user input address fields autocomplete.
  */
 $.getScript(`https://maps.googleapis.com/maps/api/js?` + 
-      `key=${google_api_key}&libraries=places&callback=initAutocomplete`)
+      `key=${google_api_key}&loading=async&libraries=places&callback=initAutocomplete`)
 
 let ORIGIN = 'a'
 let DESTINATION = 'b'
